@@ -1,7 +1,7 @@
 import WebHeader from "./component/header";
 import ResultLine, { type CategoryData } from "./component/result-line";
 import jsonData from './assets/data.json';
-//const data: CategoryData[] = jsonData;
+const data: CategoryData[] = jsonData;
 
 function App() {
 
@@ -10,7 +10,13 @@ function App() {
         <WebHeader result={76}/>
         <main>
             <h2>Summary</h2>
-            <div></div>
+            <div>
+              {data.map((item) => (
+                <div key={item.category}>
+                  <ResultLine data={item}/>
+                </div>
+              ))}
+            </div>
             <button>Continue</button>
         </main>
     </>
