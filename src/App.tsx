@@ -9,7 +9,7 @@ function App() {
     }, 0);
     const average = data.length > 0 ? totalSum / data.length : 0;
     return (
-        <>
+        <div className="lg:flex lg:min-h-screen lg:w-1/3">
             <WebHeader result={Math.round(average)}/>
             <main className="flex flex-col p-4 gap-4">
                 <h2 className="text-[hsl(224,30%,27%)]">Summary</h2>
@@ -18,9 +18,9 @@ function App() {
                         <ResultLine key={item.category} data={item}/>
                     ))}
                 </div>
-                <button className="text-white bg-[hsl(224,30%,27%)] rounded-2xl py-2">Continue</button>
+                <button className="text-white bg-[hsl(224,30%,27%)] rounded-2xl py-2 cursor-pointer hover:bg-linear-to-b from-[hsl(252,100%,67%)] to-[hsl(241,81%,54%)]">Continue</button>
             </main>
-        </>
+        </div>
   )
 }
 

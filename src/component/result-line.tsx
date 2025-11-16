@@ -18,12 +18,13 @@ const ResultLine = ({ data }: { data : CategoryData }) => {
             <div className={`${flexRowCenter}`}>
                 <img src={iconUrl} alt={data.category} />
                 <h5
-                    style={{ color: baseColor }} 
+                    style={{ color: baseColor }}
+                    className="font-bold text-sm"
                 >{data.category}</h5>
             </div>
             <div className={`${flexRowCenter}`}>
-                <span className="text-[hsl(224,30%,27%)]">{data.score}</span>
-                <span className="text-gray-400">/ 100</span>
+                <span className="text-[hsl(224,30%,27%)] font-bold text-sm">{data.score}</span>
+                <span className="text-gray-400 font-bold text-sm">/ 100</span>
             </div>
         </div>
     )
