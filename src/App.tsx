@@ -4,22 +4,23 @@ import jsonData from './assets/data.json';
 const data: CategoryData[] = jsonData;
 
 function App() {
-
-  return (
-    <>
-        <WebHeader result={76}/>
-        <main>
-            <h2>Summary</h2>
-            <div>
-              {data.map((item) => (
-                <div key={item.category}>
-                  <ResultLine data={item}/>
+    const totalSum = data.reduce((sum, currentItem) => {
+        return sum + currentItem.score;
+    }, 0);
+    const average = data.length > 0 ? totalSum / data.length : 0;
+    return (
+        <>
+            <WebHeader result={Math.round(average)}/>
+            <main className="flex flex-col p-4 gap-4">
+                <h2 className="text-[hsl(224,30%,27%)]">Summary</h2>
+                <div className="flex flex-col gap-4">
+                    {data.map((item) => (
+                        <ResultLine key={item.category} data={item}/>
+                    ))}
                 </div>
-              ))}
-            </div>
-            <button>Continue</button>
-        </main>
-    </>
+                <button className="text-white bg-[hsl(224,30%,27%)] rounded-2xl py-2">Continue</button>
+            </main>
+        </>
   )
 }
 
