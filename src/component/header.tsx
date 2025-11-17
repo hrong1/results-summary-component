@@ -10,14 +10,18 @@ const WebHeader = ({ result }: { result: number }) => {
                 rounded-b-2xl 
                 gap-4
                 px-10 
-                py-5`}>
+                py-5
+                md:rounded-2xl
+                md:w-fit`}>
             <h1 className="text-lg text-gray-400">Your Result</h1>
             <div className={`
                 ${flexCenter}
                 bg-linear-to-b from-[hsla(256,72%,46%,1)] to-[hsla(241,72%,46%,0)] 
                 rounded-full
                 w-24 
-                h-24`}>
+                h-24
+                md:w-36
+                md:h-36`}>
                 <span className="font-bold text-5xl text-white pt-2">{result ?? 'N/A'}</span>
                 <span className="text-xs text-gray-400">of 100</span>
             </div>

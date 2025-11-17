@@ -5,18 +5,18 @@ export interface CategoryData {
     color: string;
 }
 
-
 const ResultLine = ({ data }: { data : CategoryData }) => {
-    const iconUrl = new URL("." + data.icon, import.meta.url).href;
     const baseColor = data.color.replaceAll(" ", "");
     const bgColorWithOpacity = baseColor.replace('hsl', 'hsla').replace(')', ', 0.10');
     const flexRowCenter = `flex flex-row items-center justify-between gap-2`;
+    const BASE_PATH = import.meta.env.BASE_URL;
+    const finalIconUrl = `${BASE_PATH}${data.icon}`;
     return (
         <div 
             style={{ backgroundColor: bgColorWithOpacity }} 
             className={`${flexRowCenter} rounded-xl p-2`}>
             <div className={`${flexRowCenter}`}>
-                <img src={iconUrl} alt={data.category} />
+                <img src={finalIconUrl} alt={data.category} />
                 <h5
                     style={{ color: baseColor }}
                     className="font-bold text-sm"

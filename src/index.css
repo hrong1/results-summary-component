@@ -3,3 +3,7 @@
 html {
   font-family: "Hanken Grotesk", sans-serif;
 }
+
+body {
+  background-color: hsl(221, 100%, 96%);
+}
